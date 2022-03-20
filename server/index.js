@@ -9,7 +9,7 @@ const app = express()
 
 const start = async () => {
         try{
-            await sequelize.authenticate() // с помощьюданной функции подключаюсь к БД
+            await sequelize.authenticate() // с помощью данной функции подключаюсь к БД
             await sequelize.sync() //сверка запросов
             app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
         } catch (e) {
