@@ -6,4 +6,18 @@ const PORT = process.env.PORT || 5000
 
 const app = express()
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+
+const start = async () => {
+        try{
+            await sequelize.authenticate() // с помощьюданной функции подключаюсь к БД
+            await sequelize.sync() //сверка запросов
+            app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+        } catch (e) {
+            console.log(e)
+        }
+}
+
+start()
+
+
+
