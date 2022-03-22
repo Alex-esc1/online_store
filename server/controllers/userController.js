@@ -6,7 +6,7 @@ class UserController {
         
     }
     async check (reg, res) {
-       res.json ('Проверка работы контроллеров')
+      // res.json ('Проверка работы контроллеров') - для юнит тестов
     }
 }
 
