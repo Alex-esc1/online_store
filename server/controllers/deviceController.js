@@ -1,11 +1,11 @@
 class DeviceController {
-    async create (reg, res) {
+    async create (req, res) {
 
     }
-    async getAll (reg, res) {
+    async getAll (req, res) {
         
     }
-    async getOne (reg, res) {
+    async getOne (req, res) {
         
     }
 }

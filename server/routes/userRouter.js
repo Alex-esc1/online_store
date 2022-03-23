@@ -9,7 +9,7 @@ router.get('/auth', userController.check)
 
 /*
 Проверка работы роутера, можно перенести в юнит тесты
-router.get('/auth', (reg, res) => {
+router.get('/auth', (req, res) => {
     res.json({message:'Router Work!'})
 }
 )*/

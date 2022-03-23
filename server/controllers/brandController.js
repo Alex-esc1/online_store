@@ -1,8 +1,8 @@
 class BrandController {
-    async create (reg, res) {
+    async create (req, res) {
 
     }
-    async getAll (reg, res) {
+    async getAll (req, res) {
         
     }
 }
