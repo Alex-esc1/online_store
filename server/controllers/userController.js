@@ -41,14 +41,10 @@ class UserController {
       const token = generateJwt(user.id, user.email, user.role)
       return res.json({token})
   }
-
-    async check (req, res, next) {
+      async check(req, res, next) {
       // res.json ('Проверка работы контроллеров') - для юнит тестов
-      const {id} = req.query
-      if (!id) {
-          return next(ApiError.badReguest('Ошибка! Не задан ID'))
-      }
-      res.json (id);
+        const token = generateJwt(req.user.id, req.user.email, req.user.role)
+        return res.json({token})
     }
 }
 
