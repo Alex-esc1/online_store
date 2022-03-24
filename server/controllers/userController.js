@@ -16,7 +16,11 @@ class UserController {
         const hashPassword = await bcrypt.hash(password, 5) // указываем сколько раз будет пароль хешировать, т.е. 5
         const user = await User.create({email, role, password: hashPassword})
         const basket = await Basket.create({userId: user.id})
-        const jwt = jwt.sign({id: user.id, email, role})
+        const jwt = jwt.sign(
+          {id: user.id, email, role}, 
+          process.env.SECRET_KEY,
+          
+          )
     }
     async login (req, res) {
         
