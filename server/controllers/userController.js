@@ -4,7 +4,10 @@ const {User, Basket} = require('../models/models')
 
 class UserController {
     async registration (req, res) {
-
+        const {email, password, role} = req.body
+        if(!email || ! password) {
+          return next(ApiError.badReguest('Некорректный email или password'))
+        }
     }
     async login (req, res) {
         
