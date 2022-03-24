@@ -27,9 +27,21 @@ class UserController {
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})
     }
-    async login (req, res) {
-        
-    }
+
+    async login(req, res, next) {
+      const {email, password} = req.body
+      const user = await User.findOne({where: {email}})
+      if (!user) {
+          return next(ApiError.internal('Пользователь с таким именем не найден'))
+      }
+      let comparePassword = bcrypt.compareSync(password, user.password) //сравнение паролей
+      if (!comparePassword) {
+          return next(ApiError.internal('Указан неверный пароль'))
+      }
+      const token = generateJwt(user.id, user.email, user.role)
+      return res.json({token})
+  }
+
     async check (req, res, next) {
       // res.json ('Проверка работы контроллеров') - для юнит тестов
       const {id} = req.query
