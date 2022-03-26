@@ -24,14 +24,20 @@ const Auth = () => {
                         placeholder='Введите Пароль'
                     />
                     <Row className='d-flex justify-content-between mt-3'>
+                        {isLogin ?
                         <div>
                             Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Пройти регистрацию</NavLink>
                         </div>
+                        :
+                        <div>
+                            Есть аккаунта? <NavLink to={LOGIN_ROUTE}>Войдите</NavLink>
+                        </div>
+                        }
                     </Row>
                     <Button 
                         className='align-self-end' 
                         variant={"outline-success"}>
-                        Войти
+                        {isLogin ? 'Войти' : 'Регистрация'}
                     </Button>
                 </Form>
             </Card>
