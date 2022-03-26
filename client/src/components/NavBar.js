@@ -13,9 +13,16 @@ const NavBar = () => {
         <Navbar bg="dark" variant="dark">
             <Container>
             <NavLink style={{color:'white'}} to={SHOP_ROUTE}> КупиДевайс</NavLink>
-            <Nav className="ml-auto" style={{color:'white'}}>
-                <Button variant='outline-light'>Авторизация</Button>
-            </Nav>
+            {user.isAuth ?
+                <Nav className="ml-auto" style={{color:'white'}}>
+                    <Button variant='outline-light'>Админ панель</Button>
+                    <Button variant='outline-light'>Войти</Button>
+                </Nav>
+                :
+                <Nav className="ml-auto" style={{color:'white'}}>
+                    <Button variant='outline-light'>Авторизация</Button>
+                </Nav>
+            }
             </Container>
         </Navbar>
     );
