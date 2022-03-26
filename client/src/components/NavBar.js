@@ -6,8 +6,9 @@ import Container from "react-bootstrap/Container";
 import {NavLink} from 'react-router-dom';
 import {SHOP_ROUTE} from '../utils/consts';
 import {Button} from "react-bootstrap";
+import {observer} from "mobx-react-lite";
 
-const NavBar = () => {
+const NavBar = observer( () => {
     const {user} = useContext (Context)
     return (
         <Navbar bg="dark" variant="dark">
@@ -26,6 +27,6 @@ const NavBar = () => {
             </Container>
         </Navbar>
     );
-};
+});
 
 export default NavBar;
