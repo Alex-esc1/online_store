@@ -12,10 +12,8 @@ const NavBar = () => {
         <Navbar bg="dark" variant="dark">
             <Container>
             <NavLink style={{color:'white'}} to={SHOP_ROUTE}> КупиДевайс</NavLink>
-            <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav className="ml-auto" style={{color:'white'}}>
+
             </Nav>
             </Container>
         </Navbar>
