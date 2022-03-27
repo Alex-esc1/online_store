@@ -4,9 +4,16 @@ import bigStar from '../assets/bigStar.png';
 
 const DevicePage = () => {
     const device = {id: 5, name: '12 pro', price: 1000, rating: 5, img: `https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png`}
+    const description = [
+        {id: 1, title: 'Оперативная память', description: '5 гб'},
+        {id: 2, title: 'Камера', description: '10 мп'},
+        {id: 3, title: 'Процессор', description: 'Атом'},
+        {id: 4, title: 'Кол-во ядер', description: '4'},
+        {id: 5, title: 'Емкость батареи', description: '5000 Ма'},
+    ]
     return (
         <Container className='mt-3'>
-            <Row>
+        <Row>
             <Col md={4}>
                 <Image width={300} height={300} src={device.img}/>
             </Col>
@@ -30,7 +37,15 @@ const DevicePage = () => {
                     <Button variant={"outline-dark"}>Добавить в корзину</Button>
                 </Card>
             </Col>
-            </Row>
+        </Row>
+        <Row className='d-flex flex-column m-3'>
+            <h1>Характеристики:</h1>
+            {description.map((info, index)=>
+                <Row key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding:10}}>
+                    {info.title}: {info.description}
+                </Row>
+            )}
+        </Row>
         </Container>
     );
 };
