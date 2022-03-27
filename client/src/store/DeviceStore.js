@@ -14,8 +14,8 @@ export default class DeviceStore {
 
         ]
         this._devices = [
-            {id: 5, name: '12 pro', price: 1000, rating: 5, img: `https://mobilworld.by/upload/iblock/541/5417c37fe39c9d90c22df553400f6159.jpg`},
-            {id: 21, name: '12yu', price: 1200, rating: 0, img: `https://mobilworld.by/upload/iblock/541/5417c37fe39c9d90c22df553400f6159.jpg`},
+            {id: 5, name: '12 pro', price: 1000, rating: 5, img: `https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png`},
+            {id: 21, name: '12yu', price: 1200, rating: 0, img: `https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png`},
         ]
         this._selectedType = {}
         this._selectedBrand = {}
