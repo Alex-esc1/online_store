@@ -18,6 +18,7 @@ export default class DeviceStore {
             {id: 21, name: '12yu', price: 1200, rating: 0, img: `ffd8fefb-2eaf-4501-b73f-fb0c2b1e1ba4.jpg`},
         ]
         this._selectedType = {}
+        this._selectedBrand = {}
         makeAutoObservable(this)
     }
 
@@ -29,6 +30,10 @@ export default class DeviceStore {
     }
     setDevices(devices) {
         this._devices = devices
+    }
+
+    setSelectedBrand(brand) {
+        this._selectedBrand = brand
     }
 
     setSelectedType(type) {
@@ -46,5 +51,8 @@ export default class DeviceStore {
     }
     get selectedType(){
         return this._selectedType
+    }
+    get selectedBrand(){
+        return this._selectedBrand
     }
 }
