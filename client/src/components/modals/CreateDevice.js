@@ -1,7 +1,7 @@
 import React from 'react';
 import {Modal, Form, Button} from 'react-bootstrap';
 
-const CreateDevice = (show, onHide) => {
+const CreateDevice = ({show, onHide}) => {
     return (
         <Modal
             show={show}

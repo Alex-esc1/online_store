@@ -2,7 +2,7 @@ import React from 'react';
 import {Modal, Form, Button} from 'react-bootstrap';
 
 
-const CreateType = (show, onHide) => {
+const CreateType = ({show, onHide}) => {
     return (
         <Modal
             show={show}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Modal, Form, Button} from 'react-bootstrap';
 
-const CreateBrand = (show, onHide) => {
+const CreateBrand = ({show, onHide}) => {
     return (
         <Modal
             show={show}
