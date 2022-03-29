@@ -1,7 +1,9 @@
-import React from 'react';
-import {Modal, Form, Button} from 'react-bootstrap';
+import React, {useContext} from 'react';
+import {Modal, Form, Button, Dropdown, FormControl} from 'react-bootstrap';
+import {Context} from '../../index';
 
 const CreateDevice = ({show, onHide}) => {
+    const {device} = useContext(Context)
     return (
         <Modal
             show={show}
@@ -11,14 +13,41 @@ const CreateDevice = ({show, onHide}) => {
             >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Добавить тип
+                    Добавить устройство
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Control
-                    placeholder={"Введите название типа"}
+                    <Dropdown className='mt-2 mb-2'>
+                        <Dropdown.Toggle>Выберите тип</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {device.types.map(type =>
+                                <Dropdown.Item key={type.id}>{type.name}</Dropdown.Item>
+                            )}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <Dropdown className='mt-2 mb-2'>
+                        <Dropdown.Toggle>Выберите бренд</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {device.brands.map(brand =>
+                                <Dropdown.Item key={brand.id}>{brand.name}</Dropdown.Item>
+                            )}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <FormControl
+                        className='mt-3'
+                        placeholder='Введите название устройства'
                     />
+                    <FormControl
+                        className='mt-3'
+                        placeholder='Введите стоимость устройства'
+                        type='number'
+                    />
+                    <FormControl
+                        className='mt-3'
+                        type='file'
+                    />
+                    <hr/>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
