@@ -1,9 +1,14 @@
-import React, {useContext} from 'react';
-import {Modal, Form, Button, Dropdown, FormControl} from 'react-bootstrap';
+import React, {useContext, useState} from 'react';
+import {Modal, Form, Button, Dropdown, FormControl, Row, Col} from 'react-bootstrap';
 import {Context} from '../../index';
 
 const CreateDevice = ({show, onHide}) => {
     const {device} = useContext(Context)
+    const [info, setInfo] = useState([])
+
+    const addInfo = () => {
+        setInfo([...info, {tutle: '', decription: '', number: Date.now()}])
+    }
     return (
         <Modal
             show={show}
@@ -48,6 +53,31 @@ const CreateDevice = ({show, onHide}) => {
                         type='file'
                     />
                     <hr/>
+                    <Button
+                        variant='outline-dark'
+                        onClick={addInfo}
+                    >
+                        Добавить новое свойство
+                    </Button>
+                    {info.map(i =>
+                            <Row className='mt-4' key={i.number}>
+                                <Col md={4}>
+                                    <FormControl
+                                        placeholder='Введите название свойства'
+                                    />
+                                </Col>
+                                <Col md={4}>
+                                    <FormControl
+                                        placeholder='Введите описание свойства'
+                                    />
+                                </Col>
+                                <Col md={4}>
+                                    <Button variant='outline-danger'>
+                                        Удалить
+                                    </Button>
+                                </Col>
+                            </Row>
+                            )}
                 </Form>
             </Modal.Body>
             <Modal.Footer>
